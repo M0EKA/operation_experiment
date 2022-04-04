@@ -51,6 +51,7 @@ p datetime_strf
 # 2022-04-04 00:00:00 +0900
 
 # 手間はかかるけどdateのものをdatetimeに変換はできるらしい…
+# strptime は activesupport の method なので、require しないと使えない（Rails では使える）
 
 date = Date.today
 datetime = date.strftime('%Y年%m月%d日 09時00分00秒')
