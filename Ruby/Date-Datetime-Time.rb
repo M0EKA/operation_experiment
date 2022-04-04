@@ -1,6 +1,7 @@
 # Date クラス
 
 require "date"
+require "active_support/all"
 
 date = Date.today
 puts date
@@ -37,3 +38,27 @@ puts date
 # Datetime と同じように日付・時間を扱うことができる
 # require は必要ない
 # 2022-04-04 10:16:56 +0900
+
+# Date で作ったデータを Datetime にしてみる
+
+date = Date.today
+datetime = date.strftime('%Y年%m月%d日 %H時%M分%S秒')
+p datetime
+# "2022年04月04日 00時00分00秒"
+
+datetime_strf = Time.strptime(datetime, '%Y年%m月%d日 %H時%M分%S秒')
+p datetime_strf
+# 2022-04-04 00:00:00 +0900
+
+# 手間はかかるけどdateのものをdatetimeに変換はできるらしい…
+
+date = Date.today
+datetime = date.strftime('%Y年%m月%d日 09時00分00秒')
+p datetime
+# "2022年04月04日 09時00分00秒"
+
+datetime_strf = Time.strptime(datetime, '%Y年%m月%d日 %H時%M分%S秒')
+p datetime_strf
+# 2022-04-04 09:00:00 +0900
+
+# 時間を指定してdatetimeに変換することもできるらしい…！！
