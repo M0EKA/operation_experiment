@@ -1,3 +1,27 @@
+p sprintf("%#b", 10) #=> "0b1010"
+p sprintf("%#B", 10) #=> "0B1010"
+p sprintf("%#b", 0)  #=> "0"
+p sprintf("%#o", 10) #=> "012"
+p sprintf("%#x", 10) #=> "0xa"
+p sprintf("%#X", 10) #=> "0XA"
+
+p sprintf("%.0f", 10) #=> "10"
+p sprintf("%#.0f", 10) #=> "10."
+p sprintf("%.0e", 10) #=> "1e+01"
+p sprintf("%#.0e", 10) #=> "1.e+01"
+
+num = rand(1..345)
+
+spr = printf("%012d", num)
+puts spr #=> 000000000095
+p spr #=> nil
+
+spr = sprintf("%012d", num)
+puts spr #=> 000000000095
+p spr #=> "000000000095"
+
+__END__
+
 # 引数なしで呼び出した場合、0以上、1未満の小数値を生成
 # 実行するたびに生成される値が変化する
 num = rand
